@@ -2,8 +2,8 @@
 
 ## 프로젝트 개요
 한국어 기반의 공룡 성격 매칭 웹사이트입니다. 사용자가 8개의 성격 질문에 답하면 16마리 공룡 중 가장 잘 어울리는 공룡을 추천해주는 서비스입니다.
-<img width="1800" alt="스크린샷 2025-06-24 오전 10 35 02" src="https://github.com/user-attachments/assets/452224e2-6f25-4bbd-b979-6bce96061ab3" />
 
+<img width="1798" alt="스크린샷 2025-06-24 오전 10 35 28" src="https://github.com/user-attachments/assets/49cf6518-3514-4e7f-a085-591f844c0ba8" />
 
 ## 주요 기능
 - 8개 질문으로 구성된 성격 테스트
@@ -13,8 +13,6 @@
 - 결과 공유 기능
 - 결과 이미지 저장 기능
 - 공룡 도감
-<img width="1798" alt="스크린샷 2025-06-24 오전 10 35 28" src="https://github.com/user-attachments/assets/49cf6518-3514-4e7f-a085-591f844c0ba8" />
-
 
 ## 기술 스택
 - Frontend: React, TypeScript, Tailwind CSS, Framer Motion
