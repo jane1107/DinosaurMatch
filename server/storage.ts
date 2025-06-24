@@ -59,8 +59,7 @@ export class MemStorage implements IStorage {
           confrontational: 8,
           logical: 7,
         },
-        imageUrl:
-          "https://i.namu.wiki/i/M07bI5_LG7XcO1wSATfiBm6hs5W1WiYdULmeTjZ8h-d1SRxMtLavK-ose5oqUjkWxaJqcBqa5WwYKhNGxWy9NEk8zvH6LX0F7uOvwTuyQdhvUGNPijD03EUqIJMDRHN-mlSpH5KgBqwSObpCeitCaw.webp",
+        imageUrl: "/images/Tyranno.webp",
         personalityType: "리더형",
       },
       {
@@ -77,8 +76,7 @@ export class MemStorage implements IStorage {
           cautious: 8,
           collaborative: 7,
         },
-        imageUrl:
-          "https://upload.wikimedia.org/wikipedia/commons/1/1e/Triceratops_BW.jpg",
+        imageUrl: "/images/Triceratops.jpg",
         personalityType: "온순형",
       },
       {
@@ -95,8 +93,7 @@ export class MemStorage implements IStorage {
           adaptable: 8,
           collaborative: 7,
         },
-        imageUrl:
-          "https://i.namu.wiki/i/dPzoMeVK-SmpQk90pmCr269CJbgKad-Pi-Oh5dTTU7v6ULCvxl0p4P5Bvbqv4zbyyMlpIR_E0wlNzYbXsIzpITsOT7SmF3t41E3Wltc7EAKNefb-ZlA-fiMyr1RHCnmwgkxoo301aC1dzFWCJiEJ7g.webp",
+        imageUrl: "/images/Velociraptor.webp",
         personalityType: "지능형",
       },
       {
@@ -108,8 +105,7 @@ export class MemStorage implements IStorage {
         period: "쥐라기 후기 (약 1억 5천만 년 전)",
         traits: ["온화함", "포용력", "평온", "인내"],
         matchingScore: { peaceful: 10, intuitive: 8, cautious: 7, mediator: 9 },
-        imageUrl:
-          "https://upload.wikimedia.org/wikipedia/commons/8/89/Brachiosaurus_BW.jpg",
+        imageUrl: "/images/Brachiosaurus.jpg",
         personalityType: "평화형",
       },
       {
@@ -121,8 +117,7 @@ export class MemStorage implements IStorage {
         period: "쥐라기 후기 (약 1억 5천만 년 전)",
         traits: ["신중함", "방어력", "관찰력", "인내"],
         matchingScore: { cautious: 10, planning: 9, observant: 8, avoidant: 6 },
-        imageUrl:
-          "https://i.namu.wiki/i/MTm5FiHR2lYZsGO46M0Gup0iqktcH-Kwt5JVcC6iy907DgJ_ZUk3uR28G_mY7TYg5q_Fpqh922sC7ez50onC3uV8oOyIjD-CJZTPX_6TUdWWMfnkOnSIp29J5NDH98GQkuVqJDEbtRGrxnklbqTXtg.webp",
+        imageUrl: "/images/Stegosaurus.webp",
         personalityType: "방어형",
       },
       {
@@ -139,8 +134,7 @@ export class MemStorage implements IStorage {
           action: 8,
           extrovert: 7,
         },
-        imageUrl:
-          "https://mblogthumb-phinf.pstatic.net/MjAxOTEwMDFfNjcg/MDAxNTY5OTEzNjU3NjA5.ngjsFq7kHRRpCUhsAdg4WyuG7DGGzb8tu6WmunDv7Qcg.o4Znh8Tc2tToMhauESRW0OAQEBUVjTFmjZQ5GGl5lNMg.PNG.dr_trex/pteranodon-detail-header.png?type=w800",
+        imageUrl: "/images/Pteranodon.png",
         personalityType: "자유형",
       },
       {
@@ -157,8 +151,7 @@ export class MemStorage implements IStorage {
           adaptable: 9,
           action: 7,
         },
-        imageUrl:
-          "https://i.namu.wiki/i/0zILPrgqzlBjYMTBfyDWmUHcq4FhyI8u8aibruVqOh3j1G2B2MCVWinE51u2xFxZkr1LkOowOhXwcwlcGvlWXGD4hsIoAEV2fDGBaJIbQfDle8A5yNrZ7npEN61NFqGl3v34JhJIHyCKbVvOIqJY8A.webp",
+        imageUrl: "/images/Spino.webp",
         personalityType: "개성형",
       },
       {
@@ -175,8 +168,7 @@ export class MemStorage implements IStorage {
           collaborative: 8,
           mediator: 7,
         },
-        imageUrl:
-          "https://i.namu.wiki/i/YQkDsPk7Ic4_Ccm2WyE7j7fBqlasxrvDpGM4Kxw_sENSCuFcMgMc_c0k6QuvuafvNdwcmK7arD6JdpdSAHjcYg.webp",
+        imageUrl: "/images/Ankylo.webp",
         personalityType: "보호형",
       },
       {
@@ -188,8 +180,7 @@ export class MemStorage implements IStorage {
         period: "쥐라기 전기 (약 1억 9천만 년 전)",
         traits: ["사교성", "활발함", "유머", "친근함"],
         matchingScore: { extrovert: 10, social: 9, ambivert: 7, creative: 8 },
-        imageUrl:
-          "https://i.namu.wiki/i/lljvj-gGaeL0UImazD_C0J5ljT83ml3hR_xbvbYY9t-YVNvS4C3Z5zPjBp7PQc2hoYj7n9YqMYLv0D_Iv4pX0Q.webp",
+        imageUrl: "/images/Dilopho.webp",
         personalityType: "사교형",
       },
       {
@@ -206,8 +197,7 @@ export class MemStorage implements IStorage {
           social: 8,
           intuitive: 7,
         },
-        imageUrl:
-          "https://i.namu.wiki/i/ji2bZ38F-t8FYuYlrGAg5Q15cmwYgQiTnSMnm3knHJe1hD3Q4kSs9_0ivb-LT_p8pFFhdIopY2doi36_nR2lLQ.webp",
+        imageUrl: "/images/Parasaurolophus.webp",
         personalityType: "소통형",
       },
       {
@@ -224,8 +214,7 @@ export class MemStorage implements IStorage {
           leader: 8,
           adventurous: 7,
         },
-        imageUrl:
-          "https://i.namu.wiki/i/pH_-ws-6-O-VWc56cLxS3vyGcj0iZTTsYzAGCYQcdkU2i5rJ8AipKZKcD9IKCTUcEsm92KA4U6Gcges8xoIJnQ.webp",
+        imageUrl: "/images/Allo.webp",
         personalityType: "도전형",
       },
       {
@@ -242,8 +231,7 @@ export class MemStorage implements IStorage {
           peaceful: 9,
           social: 7,
         },
-        imageUrl:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Diplodocus_longus%282%29.jpg/330px-Diplodocus_longus%282%29.jpg",
+        imageUrl: "/images/Diplodocus.jpg",
         personalityType: "협력형",
       },
       {
@@ -255,8 +243,7 @@ export class MemStorage implements IStorage {
         period: "백악기 후기 (약 7,200만 년 전)",
         traits: ["신속함", "효율성", "집중력", "민첩성"],
         matchingScore: { action: 10, adaptable: 9, logical: 7, active: 10 },
-        imageUrl:
-          "https://i.namu.wiki/i/7_PW-vpc5Mgcg8JBjbaVsLvOjbKQvOtVcQea9DQ11iCHavF2XUviYLX9qj6wgIj0XEv5q--xGSmMwIJLD3Avfw.webp",
+        imageUrl: "/images/Carnotaurus.webp",
         personalityType: "신속형",
       },
       {
@@ -273,8 +260,7 @@ export class MemStorage implements IStorage {
           intuitive: 8,
           cautious: 7,
         },
-        imageUrl:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Therizinosaurus_Restoration.png/960px-Therizinosaurus_Restoration.png",
+        imageUrl: "/images/Therizinosaurus.png",
         personalityType: "성찰형",
       },
       {
@@ -291,8 +277,7 @@ export class MemStorage implements IStorage {
           introvert: 7,
           observant: 8,
         },
-        imageUrl:
-          "https://upload.wikimedia.org/wikipedia/commons/6/6a/Dracorex_BW.jpg",
+        imageUrl: "/images/Dracorex.jpg",
         personalityType: "창의형",
       },
       {
@@ -309,8 +294,7 @@ export class MemStorage implements IStorage {
           ambivert: 8,
           observant: 7,
         },
-        imageUrl:
-          "https://us.123rf.com/450wm/catmando/catmando1509/catmando150900048/46402659-amargasaurus-on-white-amargasaurus-was-a-herbivorous-sauropod-dinosaur-that-lived-in-argentina.jpg",
+        imageUrl: "/images/Amargasaurus.jpg",
         personalityType: "예술형",
       },
     ];
