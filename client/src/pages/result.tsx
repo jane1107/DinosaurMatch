@@ -3,15 +3,26 @@ import { useLocation, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Share2, RotateCcw, Book, Crown, Clock, Heart } from "lucide-react";
+import {
+  Share2,
+  RotateCcw,
+  Book,
+  Crown,
+  Clock,
+  Heart,
+  Download,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
+import html2canvas from "html2canvas";
+import { useRef } from "react";
 import type { Dinosaur, QuizResult } from "@shared/schema";
 
 export default function Result() {
   const [location] = useLocation();
   const sessionId = location.split("/").pop();
   const { toast } = useToast();
+  const resultCardRef = useRef<HTMLDivElement>(null);
 
   const { data: result, isLoading } = useQuery<
     QuizResult & { matchedDinosaur: Dinosaur }
@@ -37,6 +48,50 @@ export default function Result() {
       toast({
         title: "링크가 복사되었습니다",
         description: "친구들과 결과를 공유해보세요!",
+      });
+    }
+  };
+
+  const handleDownloadImage = async () => {
+    if (!resultCardRef.current || !result?.matchedDinosaur) return;
+
+    try {
+      // Hide action buttons temporarily for cleaner image
+      const actionButtons = document.querySelector(
+        ".action-button"
+      ) as HTMLElement;
+      const originalDisplay = actionButtons?.style.display;
+      if (actionButtons) actionButtons.style.display = "none";
+
+      const canvas = await html2canvas(resultCardRef.current, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+        width: resultCardRef.current.offsetWidth,
+        height: resultCardRef.current.offsetHeight,
+      });
+
+      // Restore action buttons
+      if (actionButtons && originalDisplay !== undefined) {
+        actionButtons.style.display = originalDisplay;
+      }
+
+      // Create download link
+      const link = document.createElement("a");
+      link.download = `나의-공룡-${result.matchedDinosaur.koreanName}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+
+      toast({
+        title: "이미지가 저장되었습니다.",
+        description: `${result.matchedDinosaur.koreanName} 결과 이미지를 다운로드 했습니다!`,
+      });
+    } catch (error) {
+      console.error("이미지 저장 실패", error);
+      toast({
+        title: "이미지 저장 실패",
+        description: "이미지를 저장하는 중 오류가 발생했습니다.",
+        variant: "destructive",
       });
     }
   };
@@ -88,6 +143,7 @@ export default function Result() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            ref={resultCardRef}
           >
             <Card className="shadow-2xl mb-8">
               <CardContent className="p-8">
@@ -170,11 +226,19 @@ export default function Result() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center action-buttons"
           >
             <Button
-              onClick={handleShare}
+              onClick={handleDownloadImage}
               className="bg-dino-green hover:bg-dino-green/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+            >
+              <Share2 className="mr-2 h-5 w-5" />
+              이미지 저장
+            </Button>
+
+            <Button
+              onClick={handleShare}
+              className="bg-dino-amber hover:bg-dino-amber/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
             >
               <Share2 className="mr-2 h-5 w-5" />
               결과 공유하기
@@ -187,13 +251,6 @@ export default function Result() {
               >
                 <RotateCcw className="mr-2 h-5 w-5" />
                 다시 테스트하기
-              </Button>
-            </Link>
-
-            <Link href="/dinosaurs">
-              <Button className="bg-dino-amber hover:bg-dino-amber/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-                <Book className="mr-2 h-5 w-5" />
-                다른 공룡 보기
               </Button>
             </Link>
           </motion.div>
