@@ -14,7 +14,9 @@ export default function Quiz() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Array<{questionId: number, answerIndex: number, type: string}>>([]);
+  const [answers, setAnswers] = useState<
+    Array<{ questionId: number; answerIndex: number; type: string }>
+  >([]);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
   const { data: questions, isLoading } = useQuery<QuizQuestion[]>({
@@ -22,7 +24,10 @@ export default function Quiz() {
   });
 
   const submitQuizMutation = useMutation({
-    mutationFn: async (data: {sessionId: string, answers: Array<{questionId: number, answerIndex: number, type: string}>}) => {
+    mutationFn: async (data: {
+      sessionId: string;
+      answers: Array<{ questionId: number; answerIndex: number; type: string }>;
+    }) => {
       const response = await apiRequest("POST", "/api/quiz/submit", data);
       return response.json();
     },
@@ -40,7 +45,9 @@ export default function Quiz() {
 
   useEffect(() => {
     if (questions && currentQuestionIndex < questions.length) {
-      const currentAnswer = answers.find(a => a.questionId === questions[currentQuestionIndex].id);
+      const currentAnswer = answers.find(
+        (a) => a.questionId === questions[currentQuestionIndex].id
+      );
       setSelectedAnswer(currentAnswer?.answerIndex ?? null);
     }
   }, [currentQuestionIndex, questions, answers]);
@@ -69,22 +76,22 @@ export default function Quiz() {
 
   const handleAnswerSelect = (answerIndex: number) => {
     setSelectedAnswer(answerIndex);
-    
+
     const newAnswer = {
       questionId: currentQuestion.id,
       answerIndex,
-      type: currentQuestion.answers[answerIndex].type
+      type: currentQuestion.answers[answerIndex].type,
     };
 
-    setAnswers(prev => {
-      const filtered = prev.filter(a => a.questionId !== currentQuestion.id);
+    setAnswers((prev) => {
+      const filtered = prev.filter((a) => a.questionId !== currentQuestion.id);
       return [...filtered, newAnswer];
     });
   };
 
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
+      setCurrentQuestionIndex((prev) => prev + 1);
     } else {
       // Submit quiz
       const sessionId = Math.random().toString(36).substring(7);
@@ -94,7 +101,7 @@ export default function Quiz() {
 
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(prev => prev - 1);
+      setCurrentQuestionIndex((prev) => prev - 1);
     }
   };
 
@@ -133,7 +140,9 @@ export default function Quiz() {
                     <h3 className="text-2xl font-bold text-gray-800 mb-2">
                       {currentQuestion.question}
                     </h3>
-                    <p className="text-gray-600">가장 잘 맞는 답을 선택해주세요</p>
+                    <p className="text-gray-600">
+                      가장 잘 맞는 답을 선택해주세요
+                    </p>
                   </div>
 
                   <div className="space-y-4">
@@ -150,20 +159,20 @@ export default function Quiz() {
                         }`}
                       >
                         <div className="flex items-center">
-                          <div className={`w-6 h-6 border-2 rounded-full mr-4 transition-colors ${
-                            selectedAnswer === index
-                              ? "border-dino-green bg-dino-green"
-                              : "border-gray-300 group-hover:border-dino-green"
-                          }`}>
-                            {selectedAnswer === index && (
-                              <div className="w-full h-full rounded-full bg-white m-0.5"></div>
-                            )}
-                          </div>
-                          <span className={`transition-colors ${
-                            selectedAnswer === index
-                              ? "dino-green font-medium"
-                              : "text-gray-700 group-hover:text-dino-green"
-                          }`}>
+                          <div
+                            className={`w-6 h-6 border-2 rounded-full mr-4 transition-colors ${
+                              selectedAnswer === index
+                                ? "border-dino-green bg-dino-green"
+                                : "border-gray-300 group-hover:border-dino-green"
+                            }`}
+                          ></div>
+                          <span
+                            className={`transition-colors ${
+                              selectedAnswer === index
+                                ? "dino-green font-medium"
+                                : "text-gray-700 group-hover:text-dino-green"
+                            }`}
+                          >
                             {answer.text}
                           </span>
                         </div>
@@ -181,10 +190,12 @@ export default function Quiz() {
                       <ArrowLeft className="mr-2 h-4 w-4" />
                       이전
                     </Button>
-                    
+
                     <Button
                       onClick={handleNext}
-                      disabled={selectedAnswer === null || submitQuizMutation.isPending}
+                      disabled={
+                        selectedAnswer === null || submitQuizMutation.isPending
+                      }
                       className="bg-dino-green hover:bg-dino-green/90 px-6 py-3"
                     >
                       {submitQuizMutation.isPending ? (

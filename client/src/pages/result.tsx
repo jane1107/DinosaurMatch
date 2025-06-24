@@ -13,7 +13,9 @@ export default function Result() {
   const sessionId = location.split("/").pop();
   const { toast } = useToast();
 
-  const { data: result, isLoading } = useQuery<QuizResult & { matchedDinosaur: Dinosaur }>({
+  const { data: result, isLoading } = useQuery<
+    QuizResult & { matchedDinosaur: Dinosaur }
+  >({
     queryKey: [`/api/quiz/result/${sessionId}`],
     enabled: !!sessionId,
   });
@@ -73,8 +75,12 @@ export default function Result() {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <h2 className="text-4xl font-bold dino-green mb-4">🎉 결과가 나왔어요!</h2>
-            <p className="text-xl text-gray-600">당신과 가장 잘 어울리는 공룡은...</p>
+            <h2 className="text-4xl font-bold dino-green mb-4">
+              🎉 결과가 나왔어요!
+            </h2>
+            <p className="text-xl text-gray-600">
+              당신과 가장 잘 어울리는 공룡은...
+            </p>
           </motion.div>
 
           {/* Result Card */}
@@ -94,42 +100,58 @@ export default function Result() {
                       onError={(e) => {
                         // Fallback to emoji if image fails to load
                         const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
+                        target.style.display = "none";
+                        target.nextElementSibling?.classList.remove("hidden");
                       }}
                     />
                     <div className="hidden text-8xl mb-4">🦕</div>
-                    <Badge className="bg-dino-green text-white px-6 py-2 text-xl font-bold">
-                      {dinosaur.koreanName} 🦖
-                    </Badge>
                   </div>
-                  
+
                   <div className="text-left">
-                    <h3 className="text-3xl font-bold dino-green mb-4">{dinosaur.personality}</h3>
+                    <h3 className="text-3xl font-bold dino-green mb-4">
+                      {dinosaur.koreanName} 🦖
+                    </h3>
                     <div className="space-y-4">
                       <div className="flex items-start">
                         <Crown className="text-amber-500 mr-3 mt-1 h-5 w-5" />
                         <div>
-                          <h4 className="font-semibold text-gray-800">성격 특징</h4>
-                          <p className="text-gray-600">{dinosaur.description}</p>
+                          <h4 className="font-semibold text-gray-800">
+                            성격 특징
+                          </h4>
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            <Badge variant="secondary" className="text-sm">
+                              {dinosaur.personality}
+                            </Badge>
+                            <p className="text-gray-600">
+                              {dinosaur.description}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <Clock className="text-amber-500 mr-3 mt-1 h-5 w-5" />
                         <div>
-                          <h4 className="font-semibold text-gray-800">생존 시기</h4>
+                          <h4 className="font-semibold text-gray-800">
+                            생존 시기
+                          </h4>
                           <p className="text-gray-600">{dinosaur.period}</p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <Heart className="text-amber-500 mr-3 mt-1 h-5 w-5" />
                         <div>
-                          <h4 className="font-semibold text-gray-800">주요 특성</h4>
+                          <h4 className="font-semibold text-gray-800">
+                            주요 특성
+                          </h4>
                           <div className="flex flex-wrap gap-2 mt-2">
                             {dinosaur.traits.map((trait, index) => (
-                              <Badge key={index} variant="secondary" className="text-sm">
+                              <Badge
+                                key={index}
+                                variant="secondary"
+                                className="text-sm"
+                              >
                                 {trait}
                               </Badge>
                             ))}
@@ -150,14 +172,14 @@ export default function Result() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button 
+            <Button
               onClick={handleShare}
               className="bg-dino-green hover:bg-dino-green/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
             >
               <Share2 className="mr-2 h-5 w-5" />
               결과 공유하기
             </Button>
-            
+
             <Link href="/quiz">
               <Button
                 variant="outline"
@@ -167,7 +189,7 @@ export default function Result() {
                 다시 테스트하기
               </Button>
             </Link>
-            
+
             <Link href="/dinosaurs">
               <Button className="bg-dino-amber hover:bg-dino-amber/90 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
                 <Book className="mr-2 h-5 w-5" />
