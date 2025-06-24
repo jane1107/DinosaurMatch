@@ -1,10 +1,40 @@
-# Find the dinosaur that suites you!
+# 공룡 성격 매칭 웹사이트
 
-## find your dinosaur with simple questions
+## 프로젝트 개요
+한국어 기반의 공룡 성격 매칭 웹사이트입니다. 사용자가 8개의 성격 질문에 답하면 16마리 공룡 중 가장 잘 어울리는 공룡을 추천해주는 서비스입니다.
+<img width="1800" alt="스크린샷 2025-06-24 오전 10 35 02" src="https://github.com/user-attachments/assets/452224e2-6f25-4bbd-b979-6bce96061ab3" />
 
-<img width="1800" alt="스크린샷 2025-06-24 오전 10 35 02" src="https://github.com/user-attachments/assets/bbdb2a8f-5a6f-497d-b9ff-f014dc2d25ad" />
 
-## check and share results
-
+## 주요 기능
+- 8개 질문으로 구성된 성격 테스트
+- 16마리 공룡 데이터베이스와 매칭 알고리즘
+- 한국어 인터페이스
+- 반응형 디자인과 애니메이션 효과
+- 결과 공유 기능
+- 결과 이미지 저장 기능
+- 공룡 도감
 <img width="1798" alt="스크린샷 2025-06-24 오전 10 35 28" src="https://github.com/user-attachments/assets/49cf6518-3514-4e7f-a085-591f844c0ba8" />
 
+
+## 기술 스택
+- Frontend: React, TypeScript, Tailwind CSS, Framer Motion
+- Backend: Express.js, Node.js
+- Database: 메모리 스토리지 (MemStorage)
+- 추가 라이브러리: html2canvas (이미지 저장용)
+
+## 최근 변경사항
+- 2024-12-25: html2canvas를 이용한 결과 이미지 저장 기능 추가
+- 결과 페이지에 "이미지 저장" 버튼 추가
+- 이미지 저장 시 액션 버튼들을 일시적으로 숨겨 깔끔한 결과 이미지 생성
+- 다운로드 파일명에 매칭된 공룡 이름 포함
+
+## 사용자 선호사항
+- 한국어 인터페이스 선호
+- 8개 질문으로 테스트 길이 조정 요청
+- 결과를 이미지로 저장하는 기능 요청
+
+## 프로젝트 아키텍처
+- 클라이언트-서버 구조
+- RESTful API 설계
+- 성격 유형 기반 매칭 알고리즘
+- 메모리 기반 데이터 저장
